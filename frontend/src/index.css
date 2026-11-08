@@ -1,0 +1,101 @@
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/space-grotesk';
+@import 'tailwindcss';
+
+:root,
+[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #0b0c0f;
+  --surface: #14161b;
+  --surface-2: #1d2027;
+  --line: #2a2e37;
+  --text: #f2f4f7;
+  --muted: #979eab;
+  --accent: #b6ff3c;
+  --on-accent: #0b0c0f;
+  --like: #ff4d6d;
+  --overlay: rgb(0 0 0 / 0.72);
+}
+
+[data-theme='light'] {
+  color-scheme: light;
+  --bg: #f6f7f9;
+  --surface: #ffffff;
+  --surface-2: #eceef2;
+  --line: #dcdfe5;
+  --text: #14161b;
+  --muted: #5d6573;
+  --accent: #4f8a00;
+  --on-accent: #ffffff;
+  --like: #e0244a;
+  --overlay: rgb(10 12 16 / 0.6);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-on-accent: var(--on-accent);
+  --color-like: var(--like);
+  --font-sans: 'Inter Variable', system-ui, sans-serif;
+  --font-display: 'Space Grotesk Variable', system-ui, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+dialog::backdrop {
+  background: var(--overlay);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+@keyframes heart-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  30% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+.rise {
+  animation: rise 0.25s ease-out both;
+}
+
+.heart-pop {
+  animation: heart-pop 0.8s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

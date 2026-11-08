@@ -1,0 +1,24 @@
+# Build output
+target/
+frontend/dist/
+*.tsbuildinfo
+
+# Dependencies
+node_modules/
+
+# IDE / OS
+.idea/
+*.iml
+.vscode/
+.DS_Store
+
+# Secrets / local env
+.env
+.env.*
+!.env.example
+
+# Runtime data (user uploads, app.upload-dir default)
+uploads/
+
+# Logs
+*.log
